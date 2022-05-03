@@ -1,12 +1,12 @@
 <template>
   <div class="bg-white rounded-lg shadow-lg p-6 mb-5">
-    {{ $children }}
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Box"
+
 }
 </script>
 

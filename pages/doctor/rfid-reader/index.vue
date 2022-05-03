@@ -3,7 +3,7 @@
     <div class="pb-5 border-b border-gray-200 mb-5">
       <h3 class="text-2xl leading-6 font-medium text-doc-blue-200">Lector RFID</h3>
     </div>
-      <GlobalBox>
+      <Box>
         <div>
           Doctor ID
           <span>{{ $auth.user.id }}</span>
@@ -23,7 +23,7 @@
         <div>
           <i class="fa-solid fa-bolt"></i>
         </div>
-      </GlobalBox>
+      </Box>
   </div>
 </template>
 
