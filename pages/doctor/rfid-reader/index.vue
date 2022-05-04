@@ -86,7 +86,10 @@
 <script>
 import {io} from "socket.io-client";
 
-const socket = io('ws://localhost:8000')
+console.log('Base URL')
+console.log(process.env.baseUrl)
+
+const socket = io(process.env.baseUrl)
 
 export default {
   name: "index",
