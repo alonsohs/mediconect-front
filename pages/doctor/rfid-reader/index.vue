@@ -57,9 +57,9 @@
           </ButtonPrimary>
         </div>
       </Box>
-      <Box v-else>
-        Si hay paciente
-      </Box>
+      <div v-else>
+        <DoctorRfidReaderPatient :patient="patient"/>
+      </div>
       <!--  END Patient info  -->
     </section>
   </div>
@@ -97,7 +97,7 @@ export default {
     return {
       rfidReader: {},
       connectionStatus: 'Conectando',
-      patient: null,
+      patient:{"hasWristband":true,"fullName":"Alonso Hernández Sastré","id":2,"curp":"HESA000614HPLRSLO7","name":"Alonso","fathers_lastname":"Hernández","mothers_lastname":"Sastré","date_of_birth":"1998-07-17","gender":"Masculino","phone":"2462080026","createdAt":"2022-04-23T19:50:25.557Z","isActive":true,"rfId":"12345678","profileImage":"https://res.cloudinary.com/dpbgumybq/image/upload/v1651585707/fzkpzjx6ml1lqszb9ldb.jpg","userId":5},
       loading: true
     }
   },

@@ -63,7 +63,6 @@ export default {
           password: this.password
         }
       })
-        .then(res => console.log('Exitooooo', res))
         .catch(err => console.log(err))
     },
   },
@@ -71,7 +70,4 @@ export default {
 </script>
 
 <style scoped>
-.bg-hero{
-  background-image: linear-gradient(to top, #160d38, #1a124c, #1c1661, #1c1b76, #19208d, #1736a5, #104cbd, #0062d5, #0088e9, #00a8ed, #00c6ea, #5ce1e6);
-}
 </style>

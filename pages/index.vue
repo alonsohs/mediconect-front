@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full bg-white rounded-md shadow-md text-center space-y-4">
+  <Box class="overflow-hidden">
     <div>
       {{$auth.user}}
     </div>
     <button @click="userLogout">Logout</button>
-  </div>
+  </Box>
 </template>
 
 <script>
