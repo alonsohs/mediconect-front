@@ -33,6 +33,10 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:8000'
+  },
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components:  [
     // Equivalent to { path: '~/components' }
