@@ -9,7 +9,7 @@
       <div class="group block">
         <div class="flex items-center gap-4">
           <div class="flex-shrink-0">
-            <img class="inline-block h-14 w-14 object-cover rounded-full" :src="$auth.user.profileImage" :alt="$auth.user.fullName">
+            <img class="inline-block h-14 w-14 object-cover rounded-full" :src="$auth.user.profileImage || profilePlaceholder" :alt="$auth.user.fullName">
           </div>
           <div class="flex-shrink-1">
             <p class="text-base font-medium text-white max-w-full">{{ $auth.user.fullName }}</p>
@@ -22,9 +22,15 @@
 </template>
 
 <script>
+import profilePlaceholder from '@/assets/profile_placeholder.png'
 export default {
   props: {
     image: {type:String, default:''},
+  },
+  data() {
+    return {
+      profilePlaceholder: profilePlaceholder
+    }
   },
   methods: {
     userLogout() {

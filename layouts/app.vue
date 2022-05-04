@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-screen overflow-hidden bg-gray-50">
     <div class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
       <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true" :class="{hidden: !showMenu}"></div>
       <div class="relative flex-1 flex flex-col max-w-xs w-full bg-gray-800" :class="{hidden: !showMenu}">
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Static sidebar for desktop -->
-    <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+    <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0  animate__animated animate__slideInLeft animate__fast">
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex-1 flex flex-col min-h-0 bg-gray-800">
         <div class="flex-1 flex flex-col py-8 overflow-y-auto">
@@ -55,7 +55,7 @@
         </button>
       </div>
       <main class="flex-1 bg-gray-50 min-h-screen">
-        <div class="py-6">
+        <div class="py-6 min-h-screen">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <!-- Replace with your content -->
             <Nuxt />
