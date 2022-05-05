@@ -1,14 +1,15 @@
 <template>
   <div class="min-h-screen flex">
-    <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+    <div class="flex-1 -mt-32 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
       <div class="mx-auto w-full max-w-sm lg:w-96">
-        <div class="animate__animated animate__fadeInDown animate__fast">
-          <img class="h-20 w-auto" src="@/assets/blue-logo.svg" alt="Workflow" />
+        <div class="flex justify-center gap-6 animate__animated animate__fadeInDown animate__fast">
+          <img class="h-52 w-auto" src="@/assets/logo.svg" alt="Mediconect logo" />
+<!--          <img class="w-56" src="@/assets/mediconect-black.svg" alt="Mediconect">-->
         </div>
 
         <div class="mt-8">
           <div class="mt-6 animate__animated animate__fadeInUp animate__fast">
-            <h2 class="mt-6 text-3xl font-extrabold text-gray-900">INICIO DE SESIÓN</h2>
+            <h2 class="mt-6 mb-5 text-3xl font-extrabold text-gray-600">INICIO DE SESIÓN</h2>
             <form @submit.prevent="userLogin" class="space-y-6">
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700"> Email </label>
@@ -40,7 +41,7 @@
       </div>
     </div>
     <div class="hidden lg:block relative w-0 flex-1 animate__animated animate__fadeIn">
-      <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80" alt="" />
+      <img class="absolute inset-0 h-full w-full object-cover" src="@/assets/medical-bg.jpg" alt="" />
     </div>
   </div>
 </template>

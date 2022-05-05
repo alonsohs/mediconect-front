@@ -44,7 +44,7 @@
           <div class="mb-5 h-40 w-56 relative mx-auto -mt-8 mb-12">
             <DoctorRfidReaderLoader class="scale-125"/>
           </div>
-          <p class="text-2xl text-center mb-2 text-doc-blue-100">Escuchando nuevas lecturas</p>
+          <p class="text-2xl text-center mb-2 text-doc-blue-100">Esperando nuevas lecturas</p>
           <p class="text-gray-500 text-center">Acerca una pulsera al lector para visualizar la información</p>
         </div>
         <div v-else-if="connectionStatus === 'Desconectado'" class="flex flex-col justify-center items-center">
@@ -100,7 +100,7 @@ export default {
     return {
       rfidReader: {},
       connectionStatus: 'Conectando',
-      patient:{"hasWristband":true,"fullName":"Alonso Hernández Sastré","id":2,"curp":"HESA000614HPLRSLO7","name":"Alonso","fathers_lastname":"Hernández","mothers_lastname":"Sastré","date_of_birth":"1998-07-17","gender":"Masculino","phone":"2462080026","createdAt":"2022-04-23T19:50:25.557Z","isActive":true,"rfId":"12345678","profileImage":"https://res.cloudinary.com/dpbgumybq/image/upload/v1651585707/fzkpzjx6ml1lqszb9ldb.jpg","userId":5},
+      patient: null,
       loading: true
     }
   },

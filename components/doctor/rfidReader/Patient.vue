@@ -13,12 +13,13 @@
         >
       </div>
       <div class="lg:col-span-2">
-        <h3 class="text-2xl font-medium uppercase">{{ patient.fullName || computedFullName }}</h3>
+        <h3 class="text-2xl font-medium uppercase mb-2">{{ patient.fullName || computedFullName }}</h3>
         <DataList>
           <DataItem title="CURP"  :value="patient.curp"/>
-          <DataItem title="Fecha de nacimiento"  :value="patient.date_of_birth"/>
+          <DataItem title="Edad"  :value="getAge(patient.date_of_birth)"/>
           <DataItem title="Género"  :value="patient.gender"/>
           <DataItem v-if="patient.phone" title="Teléfono"  :value="patient.phone"/>
+          <DataItem v-if="patient.address" title="Dirección"  :value="patient.address"/>
         </DataList>
       </div>
     </div>
@@ -45,6 +46,22 @@ export default {
   computed: {
     computedFullName() {
       return `${this.patient.name} ${this.patient.fathers_lastname} ${this.patient.mothers_lastname} `
+    }
+  },
+  methods: {
+    getAge(date_birth) {
+      const now = new Date()
+      const date_of_birth = new Date(date_birth)
+      let age = now.getFullYear() - date_of_birth.getFullYear()
+      const months = now.getMonth() - date_of_birth.getMonth()
+
+      if (
+        months < 0 ||
+        (months === 0 && now.getDate() < date_of_birth.getDate())
+      ) {
+        age--
+      }
+      return age
     }
   }
 }
