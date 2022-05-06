@@ -1,8 +1,8 @@
 <template>
-  <DoctorProfile v-if="$auth.user.user.role === 'doctor'">
+    <DoctorProfile v-if="$auth.user.user.role === 'doctor'">
 
-  </DoctorProfile>
-  <PatientProfile v-else-if="$auth.user.user.role === 'patient'"></PatientProfile>
+    </DoctorProfile>
+    <PatientProfile v-else-if="$auth.user.user.role === 'patient'"></PatientProfile>
 </template>
 
 <script>
