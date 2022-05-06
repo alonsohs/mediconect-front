@@ -4,9 +4,9 @@
       <h3 class="text-2xl leading-6 font-medium text-doc-blue-200">Lector RFID</h3>
     </div>
 
-    <section class="animate__animated animate__slideInUp animate__faster">
+    <section v-if="!loading" class="animate__animated animate__slideInUp animate__faster">
       <!--  BEGIN RFID Reader info  -->
-      <Box v-if="!loading" class="p-0">
+      <Box class="p-0">
         <div
           class="w-full grid grid-cols-1 overflow-hidden  divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x">
           <div class="p-6">
