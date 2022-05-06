@@ -59,6 +59,9 @@
       </Box>
       <div v-else>
         <DoctorRfidReaderPatient :patient="patient"/>
+        <div class="flex justify-center">
+          <ButtonPrimary :click="cleanPatient">Limpiar lectura</ButtonPrimary>
+        </div>
       </div>
       <!--  END Patient info  -->
     </section>
@@ -151,6 +154,9 @@ export default {
           this.loading = false
         })
         .catch(err => console.log(err))
+    },
+    cleanPatient() {
+      this.patient = null
     }
   }
 }
@@ -162,6 +168,6 @@ export default {
 }
 
 .reader__value {
-  @apply text-2xl;
+  @apply text-lg lg:text-2xl;
 }
 </style>

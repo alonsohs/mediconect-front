@@ -1,10 +1,8 @@
 <template>
-  <Box class="overflow-hidden">
-    <div>
-      {{$auth.user}}
-    </div>
-    <button @click="userLogout">Logout</button>
-  </Box>
+  <DoctorProfile v-if="$auth.user.user.role === 'doctor'">
+
+  </DoctorProfile>
+  <PatientProfile v-else-if="$auth.user.user.role === 'patient'"></PatientProfile>
 </template>
 
 <script>
