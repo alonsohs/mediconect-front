@@ -33,34 +33,36 @@
       </Box>
       <!--  END RFID Reader info  -->
       <!--  BEGIN Patient info  -->
-      <Box v-if="!patient" class="h-96 flex place-content-center">
-        <div v-if="connectionStatus === 'Conectando'" class="flex flex-col justify-center">
-          <div class="flex justify-center mb-5">
-            <i class="fa-solid fa-spinner animate-spin text-3xl text-gray-500"></i>
+      <div id="patient" class="-mt-8 pt-8">
+        <Box v-if="!patient" class="h-96 flex place-content-center">
+          <div v-if="connectionStatus === 'Conectando'" class="flex flex-col justify-center">
+            <div class="flex justify-center mb-5">
+              <i class="fa-solid fa-spinner animate-spin text-3xl text-gray-500"></i>
+            </div>
+            <p class="text-gray-500 text-lg">Esperando a conectarse con el servidor...</p>
           </div>
-          <p class="text-gray-500 text-lg">Esperando a conectarse con el servidor...</p>
-        </div>
-        <div v-else-if="connectionStatus === 'Conectado'" class="flex flex-col justify-center">
-          <div class="mb-5 h-40 w-56 relative mx-auto -mt-8 mb-12">
-            <DoctorRfidReaderLoader class="scale-125"/>
+          <div v-else-if="connectionStatus === 'Conectado'" class="flex flex-col justify-center">
+            <div class="mb-5 h-40 w-56 relative mx-auto -mt-8 mb-12">
+              <DoctorRfidReaderLoader class="scale-125"/>
+            </div>
+            <p class="text-2xl text-center mb-2 text-doc-blue-100">Esperando nuevas lecturas</p>
+            <p class="text-gray-500 text-center">Acerca una pulsera al lector para visualizar la información</p>
           </div>
-          <p class="text-2xl text-center mb-2 text-doc-blue-100">Esperando nuevas lecturas</p>
-          <p class="text-gray-500 text-center">Acerca una pulsera al lector para visualizar la información</p>
-        </div>
-        <div v-else-if="connectionStatus === 'Desconectado'" class="flex flex-col justify-center items-center">
-          <div class="flex justify-center mb-5">
-            <i class="fa-solid fa-face-frown text-5xl text-gray-400"></i>
+          <div v-else-if="connectionStatus === 'Desconectado'" class="flex flex-col justify-center items-center">
+            <div class="flex justify-center mb-5">
+              <i class="fa-solid fa-face-frown text-5xl text-gray-400"></i>
+            </div>
+            <p class="text-gray-500 text-lg mb-5">No es posible conectarse con el servidor</p>
+            <ButtonPrimary>
+              Reintentar
+            </ButtonPrimary>
           </div>
-          <p class="text-gray-500 text-lg mb-5">No es posible conectarse con el servidor</p>
-          <ButtonPrimary>
-            Reintentar
-          </ButtonPrimary>
-        </div>
-      </Box>
-      <div v-else>
-        <DoctorRfidReaderPatient :patient="patient"/>
-        <div class="flex justify-center">
-          <ButtonPrimary :click="cleanPatient">Limpiar lectura</ButtonPrimary>
+        </Box>
+        <div v-else>
+          <DoctorRfidReaderPatient :patient="patient"/>
+          <div class="flex justify-center">
+            <ButtonPrimary :click="cleanPatient">Limpiar lectura</ButtonPrimary>
+          </div>
         </div>
       </div>
       <!--  END Patient info  -->
@@ -130,6 +132,11 @@ export default {
 
     socket.on('rfid_read', (patient) => {
       this.patient = patient
+      setTimeout(() => {
+        document.querySelector('#patient').scrollIntoView({
+          behavior: 'smooth'
+        })
+      }, 500)
     })
 
 
