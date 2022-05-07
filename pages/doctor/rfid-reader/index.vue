@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$auth.user.hasRfidReader">
+  <div v-if="$auth.user.hasRfidReader" class="overflow-hidden">
     <div class="pb-5  mb-5">
       <h3 class="text-2xl leading-6 font-medium text-doc-blue-200">Lector RFID</h3>
     </div>
@@ -122,16 +122,13 @@ export default {
 
     const rfidReaderId = this.$auth.user?.rfid_reader?.id
 
-    socket.emit('connected', rfidReaderId)
+    socket.emit('joinRoom', rfidReaderId)
 
     socket.on('connected_id', (socketID) => {
-      console.log(socketID)
       this.connectionStatus = 'Conectado'
     })
 
     socket.on('rfid_read', (patient) => {
-      console.log('RFID read')
-      console.log(patient)
       this.patient = patient
     })
 
@@ -144,7 +141,7 @@ export default {
   updated() {
     console.log('Updated')
     const rfidReaderId = this.$auth.user?.rfid_reader?.id
-    socket.emit('connected', rfidReaderId)
+    socket.emit('createRoom', rfidReaderId)
   },
   methods: {
     getReader() {
