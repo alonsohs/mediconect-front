@@ -9,7 +9,7 @@
       </div>
       <div class="flex gap-5">
         <div>
-          <img class="inline-block h-14 w-14 object-cover rounded-full" :src="$auth.user.profileImage || profilePlaceholder" :alt="$auth.user.fullName">
+          <img class="inline-block h-14 w-14 object-cover rounded-full" :src="imageUrl || profilePlaceholder" >
         </div>
         <div class="space-y">
           <h4 class="text-xl font-normal text-gray-700 ">{{name}}</h4>
@@ -32,6 +32,7 @@ export default {
     name: String,
     gender: String,
     age: String,
+    imageUrl: String
   },
   data() {
     return {
