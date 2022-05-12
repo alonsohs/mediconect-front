@@ -38,10 +38,8 @@
       <!--    Main Diseases-->
       <Box class=" space-y-5">
         <BoxTitle>Enfermedades Crónicas</BoxTitle>
-        <DoctorRfidReaderPatientDisease color="RED" title="Hipertensión Grado 2"
-                                        value="Presión sistólica 160-179 mmHg y/o diastólica 100-109 mmHg"/>
-        <DoctorRfidReaderPatientDisease color="BLUE" title="Diabetes tipo 2"
-                                        value="Los niveles de glucosa en sangre estando en ayunas se sitúan entre 100 y 125 mg/dl y después de comer entre los 140 y los 199 mg/dl"/>
+        <DoctorRfidReaderPatientDisease v-if="patient.main_disease"  :color="patient.bandColor" :title="patient.main_disease.name"
+                                        :value="patient.main_disease.description"/>
       </Box>
       <!--      Emergency contacts-->
       <Box>
@@ -116,6 +114,9 @@ export default {
       profilePlaceholder,
       seeMoreInfo: false
     }
+  },
+  mounted() {
+    console.log(this.patient)
   },
   computed: {
     computedFullName() {

@@ -34,7 +34,7 @@ export default {
         BLUE: '#2786e5',
         RED: '#fc3131',
         PINK: '#f83cff',
-        WHITE: '#b4b4b4',
+        WHITE: '#dcdcdc',
       }
 
       if (color in colors) {
